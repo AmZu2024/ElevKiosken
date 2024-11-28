@@ -16,7 +16,8 @@
     font-size: 25px;
   }
   .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: white
+    
   }
   .dropdown-toggle::after {
     display: none;
