@@ -1,3 +1,9 @@
+.bg-color {
+    background: #F5F5F5;
+}
+/***********************************************************************************************/
+/************************************* PRODUCT BOX *********************************************/
+/***********************************************************************************************/
 .produkt {
     height: 12rem;
     width: 8rem;
@@ -6,9 +12,6 @@
     margin: 1rem;
     box-shadow: rgba(110, 110, 110, 0.1) 2.4px 2.4px 3.2px, rgba(255, 255, 255, 0.5) -9px -9px 10px 2px;
     border-radius: 0.5rem;
-}
-.bg-color {
-    background: #F5F5F5;
 }
 .produkt h4 {
     margin: 0;
@@ -41,3 +44,30 @@
 img {
     max-height: 7rem;
 }
+/***********************************************************************************************/
+/******************************************* MENU **********************************************/
+/***********************************************************************************************/
+.dropdown-menu {
+    background-color: black; 
+    border: none; 
+    box-shadow: none; 
+    
+  }
+.button-style
+{
+     background-color: black;
+     color: white;
+     font-size: 25px;
+}
+  .dropdown-item {
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    font-size: 25px;
+  }
+  .dropdown-item:hover {
+    background-color: white
+    
+  }
+  .dropdown-toggle::after {
+    display: none;
+  }
