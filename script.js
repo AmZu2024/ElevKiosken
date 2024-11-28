@@ -84,3 +84,17 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts("snacks", "snacks-container");
     showProducts("mellanmal", "mellanmal-container");
 });
+//Simulerar betalning vid användning av mellanslag
+document.addEventListener("keydown", (event) => {
+    if (event.code === "Space") { 
+        const statusDiv = document.getElementById("betalning-status");
+        if (statusDiv) {
+            statusDiv.innerHTML = `
+                <div class="BetalningGodkännd">
+                    Betalning genomförd, tack för ditt köp!
+                </div>`;
+        }
+    }
+});
+
+
