@@ -1,3 +1,52 @@
+.bg-color {
+    background: #F5F5F5;
+}
+/***********************************************************************************************/
+/************************************* PRODUCT BOX *********************************************/
+/***********************************************************************************************/
+.produkt {
+    height: 12rem;
+    width: 8rem;
+    background: #F5F5F5;
+    padding: 0.5rem;
+    margin: 1rem;
+    box-shadow: rgba(110, 110, 110, 0.1) 2.4px 2.4px 3.2px, rgba(255, 255, 255, 0.5) -9px -9px 10px 2px;
+    border-radius: 0.5rem;
+}
+.produkt h4 {
+    margin: 0;
+    text-align: center;
+    padding: 0.25rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 400;
+}
+.produkt p {
+    margin: 0;
+    text-align: center;
+    padding: 0.25rem;
+    font-weight: 600;
+}
+.produkt button {
+    border-style: none;
+    background: transparent;
+}
+#addera svg {
+    fill: #00A900;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+#substrahera svg {
+    fill: #A80000;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+img {
+    max-height: 7rem;
+}
+/***********************************************************************************************/
+/******************************************* MENU **********************************************/
+/***********************************************************************************************/
 .dropdown-menu {
     background-color: black; 
     border: none; 
@@ -22,4 +71,3 @@
   .dropdown-toggle::after {
     display: none;
   }
-  
