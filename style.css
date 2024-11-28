@@ -55,9 +55,10 @@ img {
   }
 .button-style
 {
-     background-color: black;
+     background-color: black; 
      color: white;
      font-size: 25px;
+     
 }
   .dropdown-item {
     color: rgb(255, 255, 255);
