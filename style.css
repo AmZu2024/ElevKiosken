@@ -1,6 +1,6 @@
 .produkt {
-    height: 11rem;
-    width: 7rem;
+    height: 12rem;
+    width: 8rem;
     background: #F5F5F5;
     padding: 0.5rem;
     margin: 1rem;
@@ -23,4 +23,18 @@
     text-align: center;
     padding: 0.25rem;
     font-weight: 600;
+}
+.produkt button {
+    border-style: none;
+    background: transparent;
+}
+#addera svg {
+    fill: #00A900;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+#substrahera svg {
+    fill: #A80000;
+    height: 1.5rem;
+    width: 1.5rem;
 }
