@@ -24,29 +24,29 @@ dropdownButton.addEventListener('click', function() {
 const products = {
     //Array med samtliga produkter och dess egenskaper
     senaste: [
-        { name: "Coca-Cola", price: "20kr", image: "images/cocacola.png" },
-        { name: "Baguette", price: "55kr", image: "images/baguette.jpeg" },
-        { name: "Chips", price: "20kr", image: "images/chips.png" },
-        { name: "Lokum", price: "35kr", image: "images/lokum.jpeg" },
+        { name: "Coca-Cola", price: "20kr", image: "images/cocacola.png", id: "cola" },
+        { name: "Baguette", price: "55kr", image: "images/baguette.jpeg", id: "baguette" },
+        { name: "Chips", price: "20kr", image: "images/chips.png", id: "chips" },
+        { name: "Lokum", price: "35kr", image: "images/lokum.jpeg", id: "lokum" }
     ],
     dryck: [ 
-        { name: "Nocco", price: "30kr", image: "images/nocco.png" },
-        { name: "Coca-Cola", price: "20kr", image: "images/cocacola.png" },
-        { name: "Öl", price: "65kr", image: "images/beer.png" },
-        { name: "Fanta", price: "20kr", image: "images/fanta.png" },
+        { name: "Nocco", price: "30kr", image: "images/nocco.png", id: "nocco" },
+        { name: "Coca-Cola", price: "20kr", image: "images/cocacola.png", id: "cola" },
+        { name: "Öl", price: "65kr", image: "images/beer.png", id: "beer" },
+        { name: "Fanta", price: "20kr", image: "images/fanta.png", id: "fanta" }
     ],
     snacks: [
-        { name: "Kexchoklad", price: "15kr", image: "images/kexchoklad.png" },
-        { name: "Chips", price: "20kr", image: "images/chips.png" },
-        { name: "Popcorn", price: "15kr", image: "images/popcorn.jpeg" },
-        { name: "Godis", price: "20kr", image: "images/godis.jpeg" },
+        { name: "Kexchoklad", price: "15kr", image: "images/kexchoklad.png", id: "kex" },
+        { name: "Chips", price: "20kr", image: "images/chips.png", id: "chips" },
+        { name: "Popcorn", price: "15kr", image: "images/popcorn.jpeg", id: "popcorn" },
+        { name: "Godis", price: "20kr", image: "images/godis.jpeg", id: "candy" }
     ],
     mellanmal: [
-        { name: "Wasa Knäcke", price: "10kr", image: "images/wasa.png" },
-        { name: "Lokum", price: "35kr", image: "images/lokum.jpeg" },
-        { name: "Risifrutti", price: "15kr", image: "images/risifrutti.jpeg" },
-        { name: "Baguette", price: "55kr", image: "images/baguette.jpeg" },
-    ],
+        { name: "Wasa Knäcke", price: "10kr", image: "images/wasa.png", id: "wasa" },
+        { name: "Lokum", price: "35kr", image: "images/lokum.jpeg", id: "lokum" },
+        { name: "Risifrutti", price: "15kr", image: "images/risifrutti.jpeg", id: "risifrutti" },
+        { name: "Baguette", price: "55kr", image: "images/baguette.jpeg", id: "baguette" }
+    ]
 };
 
 //Funktion för att skriva ut samtliga produkter i htmlen
@@ -61,13 +61,13 @@ function showProducts(category, containerId) {
                 </div>
                 <h4>${product.name}</h4>
                 <div class="d-flex justify-content-between">
-                    <button id="addera">
+                    <button class="addera" id="addera-${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M427-428H168v-106h259v-259h106v259h259v106H533v259H427v-259Z" />
                         </svg>
                     </button>
                     <p>${product.price}</p>
-                    <button id="substrahera">
+                    <button class="substrahera" id="substrahera-${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M168-428v-106h624v106H168Z" />
                         </svg>
