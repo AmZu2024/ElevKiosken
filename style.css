@@ -31,12 +31,12 @@
     border-style: none;
     background: transparent;
 }
-#addera svg {
+.addera svg {
     fill: #00A900;
     height: 1.5rem;
     width: 1.5rem;
 }
-#substrahera svg {
+.substrahera svg {
     fill: #A80000;
     height: 1.5rem;
     width: 1.5rem;
