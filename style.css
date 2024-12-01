@@ -52,14 +52,19 @@ img {
     border: none; 
     box-shadow: none; 
     
-  }
+}
 .button-style
 {
-     background-color: black; 
+  
+     background-color: rgb(38, 38, 38); 
      color: white;
-     font-size: 25px;
+     font-size: 28px;
+     position: relative;
+     top: -70px; 
+
      
 }
+
   .dropdown-item {
     color: rgb(255, 255, 255);
     padding: 20px;
@@ -72,3 +77,49 @@ img {
   .dropdown-toggle::after {
     display: none;
   }
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+.header {
+  background-color: #212529; 
+  color: white;             
+  padding: 16px;          
+}
+
+.header-container {
+  max-width: 1200px;       
+  margin: 0 auto;       
+  display: flex;           
+  justify-content: space-between; 
+  align-items: center;     
+  padding: 8px;         
+}
+
+.header-container h1 {
+  flex-grow: 1;           
+  text-align: center;      
+  margin: 0;               
+  font-size: 32px;         
+}
+
+.back-button {
+  background-color: #f8f9fa; 
+  color: #000000;         
+  padding: 8px 15px;         
+  text-decoration: none;     
+  border: none;              
+  border-radius: 5px;       
+  font-size: 16px;             
+  cursor: pointer;          
+  transition: background-color 0.3s ease; 
+}
+
+.back-button:hover {
+  background-color: #e2e6ea; 
+}
