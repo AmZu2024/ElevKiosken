@@ -128,6 +128,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+section div {
+  display: flex;
+  justify-content: space-evenly;
+ 
+}
+
+
+
 
 
 
