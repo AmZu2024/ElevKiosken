@@ -79,7 +79,6 @@ function showProducts(category, containerId) {
 }
 
 let cart = [];
-// DJAOPDKASPAPOSOPDKS
 function addProduct(category,productID)
 {
     const product = products[category].find(p=>p.id === productID);
@@ -130,9 +129,6 @@ function calculateTotalCartPrice() {
 
 
 
-
-
-//apodkspdokasdpoaksdpo
 
 //Inväntar att sidan har laddat innan produkterna visas
 document.addEventListener("DOMContentLoaded", () => {
