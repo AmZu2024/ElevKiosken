@@ -6,22 +6,16 @@
 /************************************* PRODUCT BOX *********************************************/
 /***********************************************************************************************/
 .produkt {
-  height: auto;
-  width: 150px;
-  background: #FFFFFF;
-  padding: 10px;
-  margin: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px;
-  border-radius: 8px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    height: 12rem;
+    width: 8rem;
+    background: #F5F5F5;
+    padding: 0.5rem;
+    margin: 1rem;
+    box-shadow: rgba(110, 110, 110, 0.1) 2.4px 2.4px 3.2px, rgba(255, 255, 255, 0.5) -9px -9px 10px 2px;
+    border-radius: 0.5rem;
 }
-
 .produkt img {
-  max-height: 100px;
-  margin-bottom: 10px;
+    max-height: 7rem;
 }
 
 .produkt h4 {
@@ -41,14 +35,6 @@
 }
 
 .produkt button {
-  background-color: transparent;
-  color: #00A900;
-  border: none;
-  padding: 5px 10px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease;
     border-style: none;
     background: transparent;
 }
