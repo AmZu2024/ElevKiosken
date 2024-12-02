@@ -94,26 +94,25 @@
 /***********************************************************************************************/
 /************************************ PRODUCT GRID *********************************************/
 /***********************************************************************************************/
-#dryck-container, #snacks-container, #mellanmal-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  padding: 10px;
+#senaste-container, #dryck-container, #snacks-container, #mellanmal-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 10px;
 }
 
 /***********************************************************************************************/
-    background-color: black; 
-    border: none; 
-    box-shadow: none; 
-    
-  }
+.dropdown{
+background-color: black;
+border: none;
+box-shadow: none; 
+}
 .button-style
 {
      background-color: black; 
      color: white;
      font-size: 25px;
-     
 }
   .dropdown-item {
     color: rgb(255, 255, 255);
