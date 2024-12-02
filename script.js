@@ -99,21 +99,12 @@ function addProduct(category,productID)
        }
       
        totalPrice = existingProduct.quantity* parseInt(existingProduct.price,10);
-       console.log(`${existingProduct.quantity}x ${product.name} added. Total price: ${totalPrice}kr`);  
+       console.log(`${existingProduct.quantity}x ${product.name} added. Price: ${totalPrice}kr`);  
     }
     updateCartDisplay();
     
 }
 
-
-function updateCartDisplay() {
-    
-    console.log("varukorg",cart)
-    // document.getElementById('cart-count').textContent = cart.reduce((sum, product) => sum + product.quantity, 0);
-
-    const totalCartPrice = calculateTotalCartPrice();
-   
-}
 
 function calculateTotalCartPrice() {
     let totalCartPrice = 0;
@@ -122,10 +113,19 @@ function calculateTotalCartPrice() {
         const productTotal = product.quantity * parseInt(product.price, 10); // Parses '20kr' -> 20
         totalCartPrice += productTotal;
     });
-
-    console.log("sumerat pris",totalCartPrice);
     return totalCartPrice;
 }
+
+function updateCartDisplay() {
+    const totalCartPrice = calculateTotalCartPrice();
+    console.log("Cart Contents:", cart.map(p => ({
+        name: p.name,
+        quantity: p.quantity,
+        price: parseInt(p.price.replace(/\D/g, ''), 10) * p.quantity // Converts price to number
+    })));
+    console.log("sumerat pris",totalCartPrice,"kr");
+}
+
 
 
 
