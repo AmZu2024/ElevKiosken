@@ -137,5 +137,3 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts("snacks", "snacks-container");
     showProducts("mellanmal", "mellanmal-container");
 });
-
-
