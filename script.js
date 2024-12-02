@@ -100,10 +100,15 @@ function addProduct(category,productID)
        }
       
        totalPrice = existingProduct.quantity* parseInt(existingProduct.price,10);
-       console.log(`${existingProduct.quantity}x ${product.name} added. Total price: ${totalPrice}kr`);
-
+       console.log(`${existingProduct.quantity}x ${product.name} added. Total price: ${totalPrice}kr`);  
     }
+    updateCartDisplay();
     
+}
+
+function updateCartDisplay() {
+    console.log("varukorg",cart)
+   
 }
 
 
