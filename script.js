@@ -61,7 +61,7 @@ function showProducts(category, containerId) {
                 </div>
                 <h4>${product.name}</h4>
                 <div class="d-flex justify-content-between">
-                    <button class="addera" id="addera-${product.id}">
+                    <button class="addera" id="addera-${product.id}" onclick="addProduct('${category}','${product.id}')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M427-428H168v-106h259v-259h106v259h259v106H533v259H427v-259Z" />
                         </svg>
@@ -77,6 +77,39 @@ function showProducts(category, containerId) {
         container.innerHTML += productElement;
     });
 }
+
+let cart = [];
+// DJAOPDKASPAPOSOPDKS
+function addProduct(category,productID)
+{
+    const product = products[category].find(p=>p.id === productID);
+    
+    if(product)
+    { 
+       let totalPrice;
+       let existingProduct = cart.find(p => p.id === product.id);
+       if(existingProduct)
+       {
+        existingProduct.quantity +=1;
+       }
+       else
+       {
+        product.quantity = 1;
+        cart.push(product);
+        existingProduct = product;
+       }
+      
+       totalPrice = existingProduct.quantity* parseInt(existingProduct.price,10);
+       console.log(`${existingProduct.quantity}x ${product.name} added. Total price: ${totalPrice}kr`);
+
+    }
+    
+}
+
+
+
+//apodkspdokasdpoaksdpo
+
 //Inväntar att sidan har laddat innan produkterna visas
 document.addEventListener("DOMContentLoaded", () => {
     showProducts("senaste", "senaste-container");
