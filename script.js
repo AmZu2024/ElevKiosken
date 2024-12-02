@@ -106,10 +106,29 @@ function addProduct(category,productID)
     
 }
 
+
 function updateCartDisplay() {
+    
     console.log("varukorg",cart)
+    // document.getElementById('cart-count').textContent = cart.reduce((sum, product) => sum + product.quantity, 0);
+
+    const totalCartPrice = calculateTotalCartPrice();
    
 }
+
+function calculateTotalCartPrice() {
+    let totalCartPrice = 0;
+
+    cart.forEach(product => {
+        const productTotal = product.quantity * parseInt(product.price, 10); // Parses '20kr' -> 20
+        totalCartPrice += productTotal;
+    });
+
+    console.log("sumerat pris",totalCartPrice);
+    return totalCartPrice;
+}
+
+
 
 
 
