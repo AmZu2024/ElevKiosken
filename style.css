@@ -48,21 +48,66 @@ img {
 /******************************************* MENU **********************************************/
 /***********************************************************************************************/
 .dropdown-menu {
+  background-color: black; 
+  border: none; 
+  box-shadow: none; 
+}
+
+.button-style {
+  background-color: black; 
+  color: white;
+  font-size: 25px;
+}
+
+.dropdown-item {
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  font-size: 25px;
+}
+
+.dropdown-item:hover {
+  background-color: white;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+#dropdownIcon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"] #dropdownIcon {
+  transform: rotate(180deg);
+}
+
+/***********************************************************************************************/
+/************************************ PRODUCT GRID *********************************************/
+/***********************************************************************************************/
+#dryck-container, #snacks-container, #mellanmal-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 10px;
+}
+
+/***********************************************************************************************/
+.dropdown-menu{
     background-color: black; 
     border: none; 
     box-shadow: none; 
     
-}
+  }
 .button-style
 {
   
      background-color: rgb(38, 38, 38); 
      color: white;
-     font-size: 28px;
+     font-size: 25px;
      position: relative;
-     top: -70px; 
-
-     
+     top: -70px;
 }
 
   .dropdown-item {
