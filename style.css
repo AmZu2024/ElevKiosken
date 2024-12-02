@@ -1,7 +1,6 @@
 .bg-color {
-  background: #F5F5F5;
+    background: #F5F5F5;
 }
-
 /***********************************************************************************************/
 /************************************* PRODUCT BOX *********************************************/
 /***********************************************************************************************/
@@ -14,26 +13,20 @@
     box-shadow: rgba(110, 110, 110, 0.1) 2.4px 2.4px 3.2px, rgba(255, 255, 255, 0.5) -9px -9px 10px 2px;
     border-radius: 0.5rem;
 }
-.produkt img {
-    max-height: 7rem;
-}
-
 .produkt h4 {
-  margin: 0;
-  text-align: center;
-  padding: 0.25rem;
-  font-size: 0.9rem;
-  font-style: italic;
-  font-weight: 400;
+    margin: 0;
+    text-align: center;
+    padding: 0.25rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 400;
 }
-
 .produkt p {
-  margin: 0;
-  text-align: center;
-  padding: 0.25rem;
-  font-weight: 600;
+    margin: 0;
+    text-align: center;
+    padding: 0.25rem;
+    font-weight: 600;
 }
-
 .produkt button {
     border-style: none;
     background: transparent;
@@ -48,11 +41,9 @@
     height: 1.5rem;
     width: 1.5rem;
 }
-
-.produkt button:hover {
-  transform: scale(1.1);
+img {
+    max-height: 7rem;
 }
-
 /***********************************************************************************************/
 /******************************************* MENU **********************************************/
 /***********************************************************************************************/
@@ -94,26 +85,31 @@
 /***********************************************************************************************/
 /************************************ PRODUCT GRID *********************************************/
 /***********************************************************************************************/
-#senaste-container, #dryck-container, #snacks-container, #mellanmal-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    padding: 10px;
+#dryck-container, #snacks-container, #mellanmal-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 10px;
 }
 
 /***********************************************************************************************/
-.dropdown{
-background-color: black;
-border: none;
-box-shadow: none; 
-}
+.dropdown-menu{
+    background-color: black; 
+    border: none; 
+    box-shadow: none; 
+    
+  }
 .button-style
 {
-     background-color: black; 
+  
+     background-color: rgb(38, 38, 38); 
      color: white;
      font-size: 25px;
+     position: relative;
+     top: -70px;
 }
+
   .dropdown-item {
     color: rgb(255, 255, 255);
     padding: 20px;
@@ -126,25 +122,49 @@ box-shadow: none;
   .dropdown-toggle::after {
     display: none;
   }
-  /***********************************************************************************************/
-/************************************ SECTION TITLES *******************************************/
-/***********************************************************************************************/
-section h2 {
-  text-align: center;
-  font-size: 20px;
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
 
-/***********************************************************************************************/
-/************************************ GENERAL IMAGE STYLING ************************************/
-/***********************************************************************************************/
-img {
-  max-width: 100%;
-  max-height: 7rem;
-  object-fit: contain;
+
+body {
+    font-family: Arial, sans-serif;
 }
 
 
+
+
+.header {
+  background-color: #212529; 
+  color: white;             
+  padding: 16px;          
+}
+
+.header-container {
+  max-width: 1200px;       
+  margin: 0 auto;       
+  display: flex;           
+  justify-content: space-between; 
+  align-items: center;     
+  padding: 8px;         
+}
+
+.header-container h1 {
+  flex-grow: 1;           
+  text-align: center;      
+  margin: 0;               
+  font-size: 32px;         
+}
+
+.back-button {
+  background-color: #f8f9fa; 
+  color: #000000;         
+  padding: 8px 15px;         
+  text-decoration: none;     
+  border: none;              
+  border-radius: 5px;       
+  font-size: 16px;             
+  cursor: pointer;          
+  transition: background-color 0.3s ease; 
+}
+
+.back-button:hover {
+  background-color: #e2e6ea; 
+}
