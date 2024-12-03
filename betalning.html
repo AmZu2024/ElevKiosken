@@ -9,11 +9,21 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="style.css" rel="stylesheet">
 </head>
-<body class="bg-color">
+
+<body class="betalsida"
     <div class="Betalning">
         <h1>Betalningssida</h1>
         <p>Tryck på mellanslag för att godkänna och betala.</p>
         <div id="betalning-status"></div>
+        <div id="kvitto-val" class="doljKvitto">
+            <label for="kvitto-typ">Välj kvittotyp:</label>
+            <select id="kvitto-typ" class="kvittoDropdown">
+                <option value="email">E-post</option>
+                <option value="print">Utskrift</option>
+            </select>
+            <button id="visa-kvitto" class="btn btn-primary mt-3">Visa kvitto</button>
+        </div>
+        <div id="kvitto-resultat" class="mt-4"></div>
     </div>
 
    <script src="betalning.js"></script>
