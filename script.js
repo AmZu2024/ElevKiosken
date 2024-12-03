@@ -2,10 +2,13 @@
 const dropdownButton = document.getElementById('dropdownButton');
 //Hämtar ikon elementet
 const dropdownIcon = document.getElementById ('dropdownIcon'); 
-//Lägger till en listener som triggas varje gång man klickar
-dropdownButton.addEventListener('click', function() {
+
   //  Säkerställer att dropdown menyn uppdateras så som vi tänkt
   //  finns risk annars att ikon ändringen sker innan bootstrap får chansen att updatera aria-expand attribute
+  if (dropdownButton && dropdownIcon)
+  {
+    //Lägger till en listener som triggas varje gång man klickar
+    dropdownButton.addEventListener('click',function(){
     setTimeout(() => {
       //Kollar aria-expanded value, är dropdown meny öppen så är den true
       if (dropdownButton.getAttribute('aria-expanded') === 'true') {
@@ -19,7 +22,7 @@ dropdownButton.addEventListener('click', function() {
       }
     }, 0); 
   });
-
+}
   //Objekt för produkter i kategorin senaste
 const products = {
     //Array med samtliga produkter och dess egenskaper
@@ -78,14 +81,13 @@ function showProducts(category, containerId) {
     });
 }
 
-let cart = [];
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 function addProduct(category,productID)
 {
     const product = products[category].find(p=>p.id === productID);
     
     if(product)
     { 
-       let totalPrice;
        let existingProduct = cart.find(p => p.id === product.id);
        if(existingProduct)
        {
@@ -97,34 +99,57 @@ function addProduct(category,productID)
         cart.push(product);
         existingProduct = product;
        }
-      
-       totalPrice = existingProduct.quantity* parseInt(existingProduct.price,10);
-       console.log(`${existingProduct.quantity}x ${product.name} added. Price: ${totalPrice}kr`);  
+       sessionStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart back to localStorage
     }
-    updateCartDisplay();
-    
+       
 }
-
 
 function calculateTotalCartPrice() {
     let totalCartPrice = 0;
 
     cart.forEach(product => {
-        const productTotal = product.quantity * parseInt(product.price, 10); // Parses '20kr' -> 20
+        const productTotal = product.quantity * parseInt(product.price, 10); 
         totalCartPrice += productTotal;
     });
     return totalCartPrice;
 }
 
-function updateCartDisplay() {
-    const totalCartPrice = calculateTotalCartPrice();
-    console.log("Cart Contents:", cart.map(p => ({
-        name: p.name,
-        quantity: p.quantity,
-        price: parseInt(p.price.replace(/\D/g, ''), 10) * p.quantity // Converts price to number
-    })));
-    console.log("sumerat pris",totalCartPrice,"kr");
+document.addEventListener("DOMContentLoaded", function () {
+    displayCart();
+});
+
+function displayCart() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.getElementById("varukorg-items");
+    
+    cartItemsContainer.innerHTML = "";
+
+    cart.forEach(item => {
+        const totalPrice = parseInt(item.price, 10) * item.quantity;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.price} kr</td>
+            <td>${item.quantity}</td>
+            <td>${totalPrice} kr</td>
+            <td>
+                <button class="btn btn-sm btn-primary" onclick="increaseQuantity('${item.id}')">+</button>
+                <button class="btn btn-sm btn-danger" onclick="decreaseQuantity('${item.id}')">-</button>
+            </td>
+        `;
+        cartItemsContainer.appendChild(row);
+    });
+
+    document.getElementById("totalsumma").innerText = `Totalt pris: ${calculateTotal()} kr`;
 }
+
+function calculateTotal() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    return cart.reduce((sum, item) => sum + parseInt(item.price, 10) * item.quantity, 0);
+}
+
+
 
 
 
