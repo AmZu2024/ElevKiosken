@@ -99,7 +99,7 @@ function addProduct(category,productID)
         cart.push(product);
         existingProduct = product;
        }
-       sessionStorage.setItem("cart", JSON.stringify(cart)); // Save updated cart back to localStorage
+       sessionStorage.setItem("cart", JSON.stringify(cart)); 
     }
        
 }
