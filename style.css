@@ -169,26 +169,6 @@ body {
   background-color: #e2e6ea; 
 }
 
-.doljKvitto {
-  display: none;
-}
-.kvittoDropdown {
-  display: block;  
-  width: auto;
-  margin: 0 auto;  
-  text-align: center;
-}
-.betalsida {
-  display: flex;
-  align-items: center;   
-  justify-content: center;  
-  flex-direction: column; 
-  height: 100vh;          
-  margin: 0;
-  padding: 0;             
-  background-color: #f8f9fa; 
-  overflow: hidden;      
-}
 .Betalning {
   display: flex;
   align-items: center;
@@ -202,4 +182,13 @@ body {
   max-width: 400px; 
   width: 100%; 
   text-align: center; 
+}
+.doljKvitto {
+  display: none;
+}
+.kvittoDropdown {
+  display: block;  
+  width: auto;
+  margin: 0 auto;  
+  text-align: center;
 }
