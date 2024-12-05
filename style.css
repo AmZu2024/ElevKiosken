@@ -176,3 +176,27 @@ section div {
 .back-button:hover {
   background-color: #e2e6ea; 
 }
+
+.Betalning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 10px; 
+  padding: 2rem; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  max-width: 400px; 
+  width: 100%; 
+  text-align: center; 
+}
+.doljKvitto {
+  display: none;
+}
+.kvittoDropdown {
+  display: block;  
+  width: auto;
+  margin: 0 auto;  
+  text-align: center;
+}
