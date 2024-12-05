@@ -200,3 +200,7 @@ section div {
   margin: 0 auto;  
   text-align: center;
 }
+.Betalningsruta{
+  display: flex;
+  justify-content: center;
+}
