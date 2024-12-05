@@ -85,7 +85,7 @@ img {
 /***********************************************************************************************/
 /************************************ PRODUCT GRID *********************************************/
 /***********************************************************************************************/
-#dryck-container, #snacks-container, #mellanmal-container {
+#dryck-container, #snacks-container, #mellanmal-container #senaste-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
@@ -191,4 +191,8 @@ body {
   width: auto;
   margin: 0 auto;  
   text-align: center;
+}
+.Betalningsruta{
+  display: flex;
+  justify-content: center;
 }

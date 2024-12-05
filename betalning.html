@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Betalning</title>
+    <title>Elevkiosk</title>
+    <link rel="icon" type="images/png" href="icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -18,11 +19,12 @@
           <a href="Varukorg.html" class="back-button">Varukorg</a>
           </div>
         </header>
-    <div class="Betalning">
-        <h1>Betalning</h1>
-        <p>Tryck på mellanslag för att godkänna och betala. Escape för att avbryta betalning</p>
-        <div id="betalning-status"></div>
-        <div id="kvitto-val" class="doljKvitto">
+        <div class="Betalningsruta">
+         <div class="Betalning">
+            <h1>Betala</h1>
+            <p>Tryck på mellanslag för att godkänna och betala. Escape för att avbryta betalning</p>
+            <div id="betalning-status"></div>
+            <div id="kvitto-val" class="doljKvitto">
             <label for="kvitto-typ">Välj kvittotyp:</label>
             <select id="kvitto-typ" class="kvittoDropdown">
                 <option value="email">E-post</option>
@@ -31,8 +33,8 @@
             <button id="visa-kvitto" class="btn btn-primary mt-3">Visa kvitto</button>
         </div>
         <div id="kvitto-resultat" class="mt-4"></div>
-    </div>
-
+             </div>
+        </div>
    <script src="betalning.js"></script>
 </body>
 </html>
