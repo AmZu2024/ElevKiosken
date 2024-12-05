@@ -176,3 +176,7 @@ section div {
 .back-button:hover {
   background-color: #e2e6ea; 
 }
+
+.accordion-item {
+  display: block; /* Gör alla accordion-item horisontella */
+}
