@@ -48,6 +48,53 @@ img {
 /******************************************* MENU **********************************************/
 /***********************************************************************************************/
 .dropdown-menu {
+  background-color: black; 
+  border: none; 
+  box-shadow: none; 
+}
+
+.button-style {
+  background-color: black; 
+  color: white;
+  font-size: 25px;
+}
+
+.dropdown-item {
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  font-size: 25px;
+}
+
+.dropdown-item:hover {
+  background-color: white;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+#dropdownIcon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle[aria-expanded="true"] #dropdownIcon {
+  transform: rotate(180deg);
+}
+
+/***********************************************************************************************/
+/************************************ PRODUCT GRID *********************************************/
+/***********************************************************************************************/
+#dryck-container, #snacks-container, #mellanmal-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 10px;
+}
+
+/***********************************************************************************************/
+.dropdown-menu{
     background-color: black; 
     border: none; 
     box-shadow: none; 
@@ -55,11 +102,14 @@ img {
   }
 .button-style
 {
-     background-color: black; 
+  
+     background-color: rgb(38, 38, 38); 
      color: white;
      font-size: 25px;
-     
+     position: relative;
+     top: -70px;
 }
+
   .dropdown-item {
     color: rgb(255, 255, 255);
     padding: 20px;
@@ -72,25 +122,10 @@ img {
   .dropdown-toggle::after {
     display: none;
   }
-  /***********************************************************************************************/
-/************************************ SECTION TITLES *******************************************/
-/***********************************************************************************************/
-section h2 {
-  text-align: center;
-  font-size: 20px;
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
 
-/***********************************************************************************************/
-/************************************ GENERAL IMAGE STYLING ************************************/
-/***********************************************************************************************/
-img {
-  max-width: 100%;
-  max-height: 7rem;
-  object-fit: contain;
+
+body {
+    font-family: Arial, sans-serif;
 }
 
 section div {
@@ -102,3 +137,42 @@ section div {
 
 
 
+
+
+.header {
+  background-color: #212529; 
+  color: white;             
+  padding: 16px;          
+}
+
+.header-container {
+  max-width: 1200px;       
+  margin: 0 auto;       
+  display: flex;           
+  justify-content: space-between; 
+  align-items: center;     
+  padding: 8px;         
+}
+
+.header-container h1 {
+  flex-grow: 1;           
+  text-align: center;      
+  margin: 0;               
+  font-size: 32px;         
+}
+
+.back-button {
+  background-color: #f8f9fa; 
+  color: #000000;         
+  padding: 8px 15px;         
+  text-decoration: none;     
+  border: none;              
+  border-radius: 5px;       
+  font-size: 16px;             
+  cursor: pointer;          
+  transition: background-color 0.3s ease; 
+}
+
+.back-button:hover {
+  background-color: #e2e6ea; 
+}

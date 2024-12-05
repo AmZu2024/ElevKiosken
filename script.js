@@ -2,10 +2,13 @@
 const dropdownButton = document.getElementById('dropdownButton');
 //Hämtar ikon elementet
 const dropdownIcon = document.getElementById ('dropdownIcon'); 
-//Lägger till en listener som triggas varje gång man klickar
-dropdownButton.addEventListener('click', function() {
+
   //  Säkerställer att dropdown menyn uppdateras så som vi tänkt
   //  finns risk annars att ikon ändringen sker innan bootstrap får chansen att updatera aria-expand attribute
+  if (dropdownButton && dropdownIcon)
+  {
+    //Lägger till en listener som triggas varje gång man klickar
+    dropdownButton.addEventListener('click',function(){
     setTimeout(() => {
       //Kollar aria-expanded value, är dropdown meny öppen så är den true
       if (dropdownButton.getAttribute('aria-expanded') === 'true') {
@@ -19,7 +22,7 @@ dropdownButton.addEventListener('click', function() {
       }
     }, 0); 
   });
-
+}
   //Objekt för produkter i kategorin senaste
 const products = {
     //Array med samtliga produkter och dess egenskaper
@@ -61,7 +64,7 @@ function showProducts(category, containerId) {
                 </div>
                 <h4>${product.name}</h4>
                 <div class="d-flex justify-content-between">
-                    <button class="addera" id="addera-${product.id}">
+                    <button class="addera" id="addera-${product.id}" onclick="addProduct('${category}','${product.id}')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M427-428H168v-106h259v-259h106v259h259v106H533v259H427v-259Z" />
                         </svg>
@@ -77,6 +80,81 @@ function showProducts(category, containerId) {
         container.innerHTML += productElement;
     });
 }
+
+let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+function addProduct(category,productID)
+{
+    const product = products[category].find(p=>p.id === productID);
+    
+    if(product)
+    { 
+       let existingProduct = cart.find(p => p.id === product.id);
+       if(existingProduct)
+       {
+        existingProduct.quantity +=1;
+       }
+       else
+       {
+        product.quantity = 1;
+        cart.push(product);
+        existingProduct = product;
+       }
+       sessionStorage.setItem("cart", JSON.stringify(cart)); 
+    }
+       
+}
+
+function calculateTotalCartPrice() {
+    let totalCartPrice = 0;
+
+    cart.forEach(product => {
+        const productTotal = product.quantity * parseInt(product.price, 10); 
+        totalCartPrice += productTotal;
+    });
+    return totalCartPrice;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    displayCart();
+});
+
+function displayCart() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.getElementById("varukorg-items");
+    
+    cartItemsContainer.innerHTML = "";
+
+    cart.forEach(item => {
+        const totalPrice = parseInt(item.price, 10) * item.quantity;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.price} kr</td>
+            <td>${item.quantity}</td>
+            <td>${totalPrice} kr</td>
+            <td>
+                <button class="btn btn-sm btn-primary" onclick="increaseQuantity('${item.id}')">+</button>
+                <button class="btn btn-sm btn-danger" onclick="decreaseQuantity('${item.id}')">-</button>
+            </td>
+        `;
+        cartItemsContainer.appendChild(row);
+    });
+
+    document.getElementById("totalsumma").innerText = `Totalt pris: ${calculateTotal()} kr`;
+}
+
+function calculateTotal() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    return cart.reduce((sum, item) => sum + parseInt(item.price, 10) * item.quantity, 0);
+}
+
+
+
+
+
+
+
 //Inväntar att sidan har laddat innan produkterna visas
 document.addEventListener("DOMContentLoaded", () => {
     showProducts("senaste", "senaste-container");
@@ -84,5 +162,3 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts("snacks", "snacks-container");
     showProducts("mellanmal", "mellanmal-container");
 });
-
-
