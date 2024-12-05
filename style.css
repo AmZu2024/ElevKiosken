@@ -85,7 +85,7 @@ img {
 /***********************************************************************************************/
 /************************************ PRODUCT GRID *********************************************/
 /***********************************************************************************************/
-#dryck-container, #snacks-container, #mellanmal-container #senaste-container {
+#dryck-container, #snacks-container, #mellanmal-container, #senaste-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
