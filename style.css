@@ -48,38 +48,38 @@ img {
 /******************************************* MENU **********************************************/
 /***********************************************************************************************/
 .dropdown-menu {
-  background-color: black; 
-  border: none; 
-  box-shadow: none; 
+background-color: black; 
+border: none; 
+box-shadow: none; 
 }
 
 .button-style {
-  background-color: black; 
-  color: white;
-  font-size: 25px;
+background-color: black; 
+color: white;
+font-size: 25px;
 }
 
 .dropdown-item {
-  color: rgb(255, 255, 255);
-  padding: 20px;
-  font-size: 25px;
+color: rgb(255, 255, 255);
+padding: 20px;
+font-size: 25px;
 }
 
 .dropdown-item:hover {
-  background-color: white;
+background-color: white;
 }
 
 .dropdown-toggle::after {
-  display: none;
+display: none;
 }
 
 #dropdownIcon {
-  margin-left: 10px;
-  transition: transform 0.3s ease;
+margin-left: 10px;
+transition: transform 0.3s ease;
 }
 
 .dropdown-toggle[aria-expanded="true"] #dropdownIcon {
-  transform: rotate(180deg);
+transform: rotate(180deg);
 }
 
 /***********************************************************************************************/
