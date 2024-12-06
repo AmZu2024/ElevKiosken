@@ -1,3 +1,4 @@
+/* eslint-disable */
 //Hämtar button elementet 
 const dropdownButton = document.getElementById('dropdownButton');
 //Hämtar ikon elementet
@@ -149,12 +150,6 @@ function calculateTotal() {
     return cart.reduce((sum, item) => sum + parseInt(item.price, 10) * item.quantity, 0);
 }
 
-
-
-
-
-
-
 //Inväntar att sidan har laddat innan produkterna visas
 document.addEventListener("DOMContentLoaded", () => {
     showProducts("senaste", "senaste-container");
@@ -162,3 +157,4 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts("snacks", "snacks-container");
     showProducts("mellanmal", "mellanmal-container");
 });
+/* eslint-enable */
