@@ -2,9 +2,9 @@
   background: #f5f5f5;
 }
 
-/* ------------------------------------------------------------------------------------------- */
-/* ----------------------------------- PRODUCT BOX ------------------------------------------- */
-/* ------------------------------------------------------------------------------------------- */
+/* -----------------------------------------------------------------------------------------
+ ----------------------------------- PRODUCT BOX ------------------------------------------- 
+ ------------------------------------------------------------------------------------------- */
 
 .produkt {
   height: 12rem;
@@ -61,9 +61,11 @@ h2{
 }
 
 .button-style {
-  background-color: black;
+  background-color: #262626;
   color: white;
   font-size: 25px;
+  position: relative;
+  top: -70px;
 }
 
 .dropdown-item {
@@ -111,25 +113,7 @@ h2{
   border: none;
   box-shadow: none;
 }
-.button-style {
-  background-color: rgb(38, 38, 38);
-  color: white;
-  font-size: 25px;
-  position: relative;
-  top: -70px;
-}
 
-.dropdown-item {
-  color: rgb(255, 255, 255);
-  padding: 20px;
-  font-size: 25px;
-}
-.dropdown-item:hover {
-  background-color: white;
-}
-.dropdown-toggle::after {
-  display: none;
-}
 
 body {
   font-family: Arial, sans-serif;
@@ -164,7 +148,7 @@ section div {
 
 .back-button {
   background-color: #f8f9fa;
-  color: #000000;
+  color: #000;
   padding: 8px 15px;
   text-decoration: none;
   border: none;
@@ -187,27 +171,30 @@ section div {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 10%);
   max-width: 400px;
   width: 100%;
   text-align: center;
 }
+
 .dolj-kvitto {
   display: none;
 }
+
 .kvitto-dropdown {
   display: block;
   width: auto;
   margin: 0 auto;
   text-align: center;
 }
+
 .betalningsruta {
   display: flex;
   justify-content: center;
 }
 
 @media screen and (max-width: 500px) {
-  .header-container h1{
+  .header-container h1 {
     font-size: 24px;
   }
 }
