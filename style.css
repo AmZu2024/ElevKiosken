@@ -95,7 +95,7 @@ h2 {
   transition: transform 0.3s ease;
 }
 
-.dropdown-toggle[aria-expanded="true"] #dropdownIcon {
+.dropdown-toggle[aria-expanded="true"] #dropdown-icon {
   transform: rotate(180deg);
 }
 
@@ -115,7 +115,6 @@ h2 {
 }
 
 /* -------------------------------------------------------------------------------------------- */
-
 
 body {
   font-family: Arial, sans-serif;
