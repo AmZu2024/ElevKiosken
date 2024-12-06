@@ -70,7 +70,7 @@ function showProducts(category, containerId) {
                         </svg>
                     </button>
                     <p>${product.price}</p>
-                    <button class="substrahera" id="substrahera-${product.id}">
+                    <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}','${product.id}')">>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M168-428v-106h624v106H168Z" />
                         </svg>
@@ -102,6 +102,37 @@ function addProduct(category,productID)
        sessionStorage.setItem("cart", JSON.stringify(cart)); 
     }
        
+}
+
+function removeProduct(category,productID)
+{
+    const product = products[category].find(p=>p.id === productID);
+
+    if(product)
+    { 
+       let existingProduct = cart.find(p => p.id === product.id);
+       if(existingProduct)
+       {
+        
+        if(existingProduct.quantity>=1)
+        {
+            existingProduct.quantity -=1;
+        }
+        else if(existingProduct.quantity =0)
+        {
+            existingProduct.quantity;
+            cart = cart.filter(p => p.id !== product.id);
+        }
+       }
+       else
+       {
+        product.quantity = 0;
+        cart.push(product);
+        existingProduct = product;
+       }
+       sessionStorage.setItem("cart", JSON.stringify(cart)); 
+    }
+     console.log(cart)  
 }
 
 function calculateTotalCartPrice() {
