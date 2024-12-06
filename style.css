@@ -3,7 +3,7 @@
 }
 
 /* -----------------------------------------------------------------------------------------
- ----------------------------------- PRODUCT BOX ------------------------------------------- 
+ ----------------------------------- PRODUCT BOX -------------------------------------------
  ------------------------------------------------------------------------------------------- */
 
 .produkt {
@@ -12,10 +12,12 @@
   background: #f5f5f5;
   padding: 0.5rem;
   margin: 1rem;
-  box-shadow: rgba(110, 110, 110, 0.1) 2.4px 2.4px 3.2px,
-    rgba(255, 255, 255, 0.5) -9px -9px 10px 2px;
+  box-shadow: 
+    #6e6e6e1a 2.4px 2.4px 3.2px,
+    #ffffff80 -9px -9px 10px 2px;
   border-radius: 0.5rem;
 }
+
 .produkt h4 {
   margin: 0;
   text-align: center;
@@ -24,36 +26,42 @@
   font-style: italic;
   font-weight: 400;
 }
+
 .produkt p {
   margin: 0;
   text-align: center;
   padding: 0.25rem;
   font-weight: 600;
 }
+
 .produkt button {
   border-style: none;
   background: transparent;
 }
+
 .addera svg {
   fill: #00a900;
   height: 1.5rem;
   width: 1.5rem;
 }
+
 .substrahera svg {
   fill: #a80000;
   height: 1.5rem;
   width: 1.5rem;
 }
+
 img {
   max-height: 7rem;
 }
 
-h2{
+h2 {
   text-align: center;
 }
-/***********************************************************************************************/
-/******************************************* MENU **********************************************/
-/***********************************************************************************************/
+
+ /* ---------------------------------------------------------------------------------------
+---------------------------------------- MENU ---------------------------------------------
+---------------------------------------------------------------------------------------- */
 .dropdown-menu {
   background-color: black;
   border: none;
@@ -62,20 +70,20 @@ h2{
 
 .button-style {
   background-color: #262626;
-  color: white;
+  color: #fff;
   font-size: 25px;
   position: relative;
   top: -70px;
 }
 
 .dropdown-item {
-  color: rgb(255, 255, 255);
+  color: #fff;
   padding: 20px;
   font-size: 25px;
 }
 
 .dropdown-item:hover {
-  background-color: white;
+  background-color: #fff;
 }
 
 .dropdown-toggle::after {
@@ -91,9 +99,9 @@ h2{
   transform: rotate(180deg);
 }
 
-/* ------------------------------------------------------------------------------------------- */
-/* ---------------------------------- PRODUCT GRID ------------------------------------------- */
-/* ------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------
+------------------------------------ PRODUCT GRID -----------------------------------------
+---------------------------------------------------------------------------------------- */
 
 #dryck-container,
 #snacks-container,
@@ -113,7 +121,6 @@ h2{
   border: none;
   box-shadow: none;
 }
-
 
 body {
   font-family: Arial, sans-serif;
@@ -171,7 +178,7 @@ section div {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 2rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 10%);
+  box-shadow: 0 4px 8px #0000001a;
   max-width: 400px;
   width: 100%;
   text-align: center;
