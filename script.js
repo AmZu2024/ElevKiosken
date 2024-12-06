@@ -83,17 +83,15 @@ function showProducts(category, containerId) {
 }
 
 let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
 function addProduct(category,productID)
 {
     const product = products[category].find(p=>p.id === productID);
-    
     if(product)
     { 
        let existingProduct = cart.find(p => p.id === product.id);
        if(existingProduct)
-       {
-        existingProduct.quantity +=1;
-       }
+       { existingProduct.quantity +=1; }
        else
        {
         product.quantity = 1;
