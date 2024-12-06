@@ -86,17 +86,17 @@ let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
 function addProduct(category,productID)
 {
-    const product = products[category].find(p=>p.id === productID);
-    if(product)
+    const produkt = products[category].find(p=>p.id === productID);
+    if(produkt)
     { 
-       let existingProduct = cart.find(p => p.id === product.id);
+       let existingProduct = cart.find(p => p.id === produkt.id);
        if(existingProduct)
        { existingProduct.quantity +=1; }
        else
        {
-        product.quantity = 1;
-        cart.push(product);
-        existingProduct = product;
+        produkt.quantity = 1;
+        cart.push(produkt);
+        existingProduct = produkt;
        }
        sessionStorage.setItem("cart", JSON.stringify(cart)); 
     }
