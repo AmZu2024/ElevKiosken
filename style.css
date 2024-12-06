@@ -48,44 +48,44 @@ img {
 /******************************************* MENU **********************************************/
 /***********************************************************************************************/
 .dropdown-menu {
-  background-color: black; 
-  border: none; 
-  box-shadow: none; 
+background-color: black; 
+border: none; 
+box-shadow: none; 
 }
 
 .button-style {
-  background-color: black; 
-  color: white;
-  font-size: 25px;
+background-color: black; 
+color: white;
+font-size: 25px;
 }
 
 .dropdown-item {
-  color: rgb(255, 255, 255);
-  padding: 20px;
-  font-size: 25px;
+color: rgb(255, 255, 255);
+padding: 20px;
+font-size: 25px;
 }
 
 .dropdown-item:hover {
-  background-color: white;
+background-color: white;
 }
 
 .dropdown-toggle::after {
-  display: none;
+display: none;
 }
 
 #dropdownIcon {
-  margin-left: 10px;
-  transition: transform 0.3s ease;
+margin-left: 10px;
+transition: transform 0.3s ease;
 }
 
 .dropdown-toggle[aria-expanded="true"] #dropdownIcon {
-  transform: rotate(180deg);
+transform: rotate(180deg);
 }
 
 /***********************************************************************************************/
 /************************************ PRODUCT GRID *********************************************/
 /***********************************************************************************************/
-#dryck-container, #snacks-container, #mellanmal-container {
+#dryck-container, #snacks-container, #mellanmal-container, #senaste-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
@@ -128,6 +128,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+section div {
+  display: flex;
+  justify-content: space-evenly;
+ 
+}
+
+
+
 
 
 
@@ -167,4 +175,32 @@ body {
 
 .back-button:hover {
   background-color: #e2e6ea; 
+}
+
+.Betalning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
+  background-color: #fff; 
+  border: 1px solid #ddd; 
+  border-radius: 10px; 
+  padding: 2rem; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  max-width: 400px; 
+  width: 100%; 
+  text-align: center; 
+}
+.doljKvitto {
+  display: none;
+}
+.kvittoDropdown {
+  display: block;  
+  width: auto;
+  margin: 0 auto;  
+  text-align: center;
+}
+.Betalningsruta{
+  display: flex;
+  justify-content: center;
 }
