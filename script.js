@@ -1,8 +1,8 @@
 /* eslint-disable */
 //Hämtar button elementet 
-const dropdownButton = document.getElementById('dropdownButton');
+const dropdownButton = document.getElementById('dropdown-button');
 //Hämtar ikon elementet
-const dropdownIcon = document.getElementById ('dropdownIcon'); 
+const dropdownIcon = document.getElementById ('dropdown-icon'); 
 
   //  Säkerställer att dropdown menyn uppdateras så som vi tänkt
   //  finns risk annars att ikon ändringen sker innan bootstrap får chansen att updatera aria-expand attribute
