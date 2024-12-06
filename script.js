@@ -132,6 +132,7 @@ function removeProduct(category,productID)
         existingProduct = product;
        }
        sessionStorage.setItem("cart", JSON.stringify(cart)); 
+       displayCart();
     }
      console.log(cart)  
 }
@@ -151,18 +152,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayCart() {
-    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-    const cartItemsContainer = document.getElementById("varukorg-items");
-    
+    const cartItemsContainer = document.getElementById("varukorg-items");    
     cartItemsContainer.innerHTML = "";
 
-    cart.forEach(item => {
+    const filteredCart = cart.filter(item => item.quantity > 0);
+
+    filteredCart.forEach(item => {
         const totalPrice = parseInt(item.price, 10) * item.quantity;
 
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${item.name}</td>
-            <td>${item.price} kr</td>
+            <td>${item.price} </td>
             <td>${item.quantity}</td>
             <td>${totalPrice} kr</td>
             <td>
