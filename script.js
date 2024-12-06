@@ -1,8 +1,8 @@
 /* eslint-disable */
 //Hämtar button elementet 
-const dropdownButton = document.getElementById('dropdownButton');
+const dropdownButton = document.getElementById('dropdown-button');
 //Hämtar ikon elementet
-const dropdownIcon = document.getElementById ('dropdownIcon'); 
+const dropdownIcon = document.getElementById ('dropdown-icon'); 
 
   //  Säkerställer att dropdown menyn uppdateras så som vi tänkt
   //  finns risk annars att ikon ändringen sker innan bootstrap får chansen att updatera aria-expand attribute
@@ -71,7 +71,7 @@ function showProducts(category, containerId) {
                         </svg>
                     </button>
                     <p>${product.price}</p>
-                    <button class="substrahera" id="substrahera-${product.id}">
+                    <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}','${product.id}')">>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M168-428v-106h624v106H168Z" />
                         </svg>
@@ -105,6 +105,38 @@ function addProduct(category,productID)
        
 }
 
+function removeProduct(category,productID)
+{
+    const product = products[category].find(p=>p.id === productID);
+
+    if(product)
+    { 
+       let existingProduct = cart.find(p => p.id === product.id);
+       if(existingProduct)
+       {
+        
+        if(existingProduct.quantity>=1)
+        {
+            existingProduct.quantity -=1;
+        }
+        else if(existingProduct.quantity =0)
+        {
+            existingProduct.quantity;
+            cart = cart.filter(p => p.id !== product.id);
+        }
+       }
+       else
+       {
+        product.quantity = 0;
+        cart.push(product);
+        existingProduct = product;
+       }
+       sessionStorage.setItem("cart", JSON.stringify(cart)); 
+       displayCart();
+    }
+     console.log(cart)  
+}
+
 function calculateTotalCartPrice() {
     let totalCartPrice = 0;
 
@@ -120,18 +152,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayCart() {
-    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-    const cartItemsContainer = document.getElementById("varukorg-items");
-    
+    const cartItemsContainer = document.getElementById("varukorg-items");    
     cartItemsContainer.innerHTML = "";
 
-    cart.forEach(item => {
+    const filteredCart = cart.filter(item => item.quantity > 0);
+
+    filteredCart.forEach(item => {
         const totalPrice = parseInt(item.price, 10) * item.quantity;
 
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${item.name}</td>
-            <td>${item.price} kr</td>
+            <td>${item.price} </td>
             <td>${item.quantity}</td>
             <td>${totalPrice} kr</td>
             <td>
