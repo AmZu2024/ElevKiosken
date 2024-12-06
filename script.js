@@ -71,7 +71,7 @@ function showProducts(category, containerId) {
                         </svg>
                     </button>
                     <p>${product.price}</p>
-                    <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}','${product.id}')">>
+                    <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}','${product.id}')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M168-428v-106h624v106H168Z" />
                         </svg>
