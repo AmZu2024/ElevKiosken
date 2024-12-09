@@ -111,7 +111,7 @@ h2 {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   justify-items: center;
-  padding: 1p0x;
+  padding: 1px;
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -199,36 +199,22 @@ section div {
     font-size: 24px;
   }
 }
+
 .accordion-item {
   display: block;
 }
-.senaste-container{
-  display: block;
-  padding: 50%;
-}
 
-#senaste-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  padding: 10px;
-}
-
-#dryck-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 0px; 
-  padding: 10px;
-}
-#snacks-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0px; 
-  padding: 10px;
-}
-
+.senaste-container, 
+#senaste-container, 
+#dryck-container, 
+#snacks-container, 
 #mellanmal-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0px; 
+  gap: 0px;
   padding: 10px;
+}
+
+.senaste-container {
+  padding: 50%;
 }
