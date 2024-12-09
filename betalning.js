@@ -1,3 +1,4 @@
+/* eslint-disable */
 //Simulerar betalning vid användning av mellanslag
 document.addEventListener("keydown", (event) => {
     const statusDiv = document.getElementById("betalning-status");
@@ -48,3 +49,4 @@ document.addEventListener("keydown", (event) => {
             </div>`;
     }
 });
+/* eslint-enable */

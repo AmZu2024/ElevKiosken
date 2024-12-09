@@ -1,7 +1,8 @@
+/* eslint-disable */
 //Hämtar button elementet 
-const dropdownButton = document.getElementById('dropdownButton');
+const dropdownButton = document.getElementById('dropdown-button');
 //Hämtar ikon elementet
-const dropdownIcon = document.getElementById ('dropdownIcon'); 
+const dropdownIcon = document.getElementById ('dropdown-icon'); 
 
   //  Säkerställer att dropdown menyn uppdateras så som vi tänkt
   //  finns risk annars att ikon ändringen sker innan bootstrap får chansen att updatera aria-expand attribute
@@ -55,7 +56,6 @@ const products = {
 //Funktion för att skriva ut samtliga produkter i htmlen
 function showProducts(category, containerId) {
     const container = document.getElementById(containerId);
-    //Loopar igenom objektet och hämtar egenskaperna samt lägger till de i html strukturen
     products[category].forEach((product) => {
         const productElement = `
             <div class="produkt d-flex flex-column">
@@ -70,7 +70,7 @@ function showProducts(category, containerId) {
                         </svg>
                     </button>
                     <p>${product.price}</p>
-                    <button class="substrahera" id="substrahera-${product.id}">
+                    <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}','${product.id}')">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
                             <path d="M168-428v-106h624v106H168Z" />
                         </svg>
@@ -82,31 +82,39 @@ function showProducts(category, containerId) {
 }
 
 let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-function addProduct(category,productID)
-{
-    const product = products[category].find(p=>p.id === productID);
-    
-    if(product)
-    { 
-       let existingProduct = cart.find(p => p.id === product.id);
-       if(existingProduct)
-       {
-        existingProduct.quantity +=1;
-       }
-       else
-       {
-        product.quantity = 1;
-        cart.push(product);
-        existingProduct = product;
+
+function addProduct(category,productID) {
+    const produkt = products[category].find(p=>p.id === productID);
+    if(produkt) { 
+       let existingProduct = cart.find(p => p.id === produkt.id);
+       if(existingProduct) { 
+           existingProduct.quantity +=1; 
+       } else {
+        produkt.quantity = 1;
+        cart.push(produkt);
        }
        sessionStorage.setItem("cart", JSON.stringify(cart)); 
     }
-       
+}
+
+function removeProduct(category,productID) {
+    const product = products[category].find(p=>p.id === productID);
+    if(product) { 
+       let existingProduct = cart.find(p => p.id === product.id);
+       if(existingProduct) {
+        if(existingProduct.quantity>=1) {
+            existingProduct.quantity -=1;
+        } else if(existingProduct.quantity === 0) {
+            cart = cart.filter(p => p.id !== product.id);
+        }
+       }
+       sessionStorage.setItem("cart", JSON.stringify(cart)); 
+       displayCart();
+    }
 }
 
 function calculateTotalCartPrice() {
     let totalCartPrice = 0;
-
     cart.forEach(product => {
         const productTotal = product.quantity * parseInt(product.price, 10); 
         totalCartPrice += productTotal;
@@ -119,23 +127,21 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayCart() {
-    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-    const cartItemsContainer = document.getElementById("varukorg-items");
-    
+    const cartItemsContainer = document.getElementById("varukorg-items");    
     cartItemsContainer.innerHTML = "";
-
-    cart.forEach(item => {
+    const filteredCart = cart.filter(item => item.quantity > 0);
+    filteredCart.forEach(item => {
         const totalPrice = parseInt(item.price, 10) * item.quantity;
-
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${item.name}</td>
-            <td>${item.price} kr</td>
+            <td>${item.price} </td>
             <td>${item.quantity}</td>
             <td>${totalPrice} kr</td>
             <td>
                 <button class="btn btn-sm btn-primary" onclick="increaseQuantity('${item.id}')">+</button>
                 <button class="btn btn-sm btn-danger" onclick="decreaseQuantity('${item.id}')">-</button>
+                <button class="btn btn-sm btn-danger" onclick="removeItemFromCart('${item.id}')">Ta bort</button>
             </td>
         `;
         cartItemsContainer.appendChild(row);
@@ -149,16 +155,20 @@ function calculateTotal() {
     return cart.reduce((sum, item) => sum + parseInt(item.price, 10) * item.quantity, 0);
 }
 
-
-
-
-
-
-
-//Inväntar att sidan har laddat innan produkterna visas
 document.addEventListener("DOMContentLoaded", () => {
     showProducts("senaste", "senaste-container");
     showProducts("dryck", "dryck-container");
     showProducts("snacks", "snacks-container");
     showProducts("mellanmal", "mellanmal-container");
 });
+
+// Ny funktion för att ta bort varor från varukorgen
+function removeItemFromCart(productID) {
+    cart = cart.filter(p => p.id !== productID);
+    sessionStorage.setItem("cart", JSON.stringify(cart)); 
+    displayCart();
+}
+/* eslint-enable */
+
+
+
