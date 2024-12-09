@@ -1,4 +1,3 @@
-
 name: Deploy to GitHub Pages
 
 on:
@@ -17,6 +16,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: List files in project directory
+        run: ls -R
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -25,13 +29,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./src
 
       - name: Build application
         run: npm run build
+        working-directory: ./src
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./src/build
