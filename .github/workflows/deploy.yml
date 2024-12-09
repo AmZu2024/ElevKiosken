@@ -18,6 +18,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: List files
+          run: ls -R /home/runner/work/ElevKiosken/ElevKiosken
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
