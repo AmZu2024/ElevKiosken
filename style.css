@@ -204,16 +204,16 @@ section div {
   display: block;
 }
 
+.senaste-container {
+  padding: 50%;
+}
+
 #senaste-container,
 #dryck-container,
 #snacks-container,
 #mellanmal-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0px;
+  gap: 0;
   padding: 10px;
-}
-
-.senaste-container {
-  padding: 50%;
 }
