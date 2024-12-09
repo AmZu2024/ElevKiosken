@@ -204,3 +204,11 @@ section div {
   display: flex;
   justify-content: center;
 }
+
+.accordion-item {
+  display: block; /* Gör alla accordion-item horisontella */
+}
+.senaste-container{
+  display: block;
+  padding: 50%;
+}
