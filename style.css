@@ -208,9 +208,27 @@ section div {
   padding: 50%;
 }
 
-#senaste-container,
-#dryck-container,
-#snacks-container,
+#senaste-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  padding: 10px;
+}
+
+#dryck-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  padding: 10px;
+}
+
+#snacks-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  padding: 10px;
+}
+
 #mellanmal-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
