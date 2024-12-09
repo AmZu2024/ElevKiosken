@@ -111,7 +111,7 @@ h2 {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   justify-items: center;
-  padding: 10px;
+  padding: 1p0x;
 }
 
 /* -------------------------------------------------------------------------------------------- */
@@ -200,9 +200,35 @@ section div {
   }
 }
 .accordion-item {
-  display: block; /* Gör alla accordion-item horisontella */
+  display: block;
 }
 .senaste-container{
   display: block;
   padding: 50%;
+}
+
+#senaste-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  padding: 10px;
+}
+
+#dryck-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 0px; 
+  padding: 10px;
+}
+#snacks-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px; 
+  padding: 10px;
+}
+
+#mellanmal-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px; 
+  padding: 10px;
 }
