@@ -59,25 +59,39 @@ function showProducts(category, containerId) {
     //Loopar igenom objektet och hämtar egenskaperna samt lägger till de i html strukturen
     products[category].forEach((product) => {
         const productElement = `
-            <div class="produkt d-flex flex-column">
-                <div class="d-flex justify-content-center flex-grow-1 flex-column">
-                    <img src="${product.image}" alt="${product.name}">
-                </div>
-                <h4>${product.name}</h4>
-                <div class="d-flex justify-content-between">
-                    <button class="addera" id="addera-${product.id}" onclick="addProduct('${category}','${product.id}')">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                            <path d="M427-428H168v-106h259v-259h106v259h259v106H533v259H427v-259Z" />
-                        </svg>
-                    </button>
-                    <p>${product.price}</p>
-                    <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}','${product.id}')">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                            <path d="M168-428v-106h624v106H168Z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>`;
+    <div class="produkt d-flex flex-column">
+        <div class="d-flex justify-content-center flex-grow-1 flex-column">
+            <img src="${product.image}" alt="${product.name}">
+        </div>
+        <h4>${product.name}</h4>
+        <div class="d-flex justify-content-between">
+            <!-- Knapp för att lägga till -->
+            <button class="addera" id="addera-${product.id}" onclick="addProduct('${category}', '${product.id}')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M427-428H168v-106h259v-259h106v259h259v106H533v259H427v-259Z" />
+                </svg>
+            </button>
+
+            <!-- Visar priset -->
+            <p>${product.price}</p>
+            
+            <!-- Knapp för att minska -->
+            <button class="substrahera" id="substrahera-${product.id}" onclick="removeProduct('${category}', '${product.id}')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M168-428v-106h624v106H168Z" />
+                </svg>
+            </button>
+            
+            <!-- Knapp för att ta bort -->
+            <button class="ta-bort" id="ta-bort-${product.id}" onclick="removeProductFromCart('${product.id}')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                    <path d="M480-400q-20 0-30-15t-10-35V-600q0-20 10-35t30-15q20 0 30 15t10 35v150q0 20-10 35t-30 15Zm0 320q-92 0-173-47t-126-126q-47-81-47-173t47-173q47-81 126-126t173-47q92 0 173 47t126 126q47 81 47 173t-47 173q-47 81-126 126t-173 47Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+`;
+
         container.innerHTML += productElement;
     });
 }
@@ -188,3 +202,28 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts("mellanmal", "mellanmal-container");
 });
 /* eslint-enable */
+
+// Funktion för att öka antalet av en produkt i varukorgen
+function increaseQuantity(productID) {
+    let existingProduct = cart.find(p => p.id === productID);
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    }
+    sessionStorage.setItem("cart", JSON.stringify(cart)); 
+    displayCart();
+}
+
+// Funktion för att minska antalet av en produkt i varukorgen
+function decreaseQuantity(productID) {
+    let existingProduct = cart.find(p => p.id === productID);
+    if (existingProduct) {
+        if (existingProduct.quantity > 1) {
+            existingProduct.quantity -= 1;
+        } else {
+            cart = cart.filter(p => p.id !== productID); // Ta bort produkten om den når 0
+        }
+    }
+    sessionStorage.setItem("cart", JSON.stringify(cart)); 
+    displayCart();
+}
+
