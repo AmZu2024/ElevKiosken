@@ -200,6 +200,10 @@ section div {
   }
 }
 
+.accordion {
+  display: block;
+}
+
 .accordion-item {
   display: block;
 }
