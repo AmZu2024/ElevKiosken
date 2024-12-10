@@ -10,9 +10,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 <body class="bg-color">
-    <header class="header">
-        <div class="header-container">
+    <header class="bg-dark text-white py-3">
+      <div class="container d-flex justify-content-between align-items-center">
+      <button class="button-style dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-button">
+        <i class="bi bi-list" id="dropdown-icon"></i>
+      </button>
+      <div class="flex-grow-1">
           <h1>Elevkiosken</h1>
+
           <a href="Varukorg.html" class="back-button">Varukorg</a>
         </div>
     </header>
@@ -29,6 +34,21 @@
           <li><a class="dropdown-item" href="Varukorg.html">Varukorg</a></li>
         </ul>
     </div>
+
+
+        </div>
+          <a href="Varukorg.html" class="btn btn-light">Varukorg</a>
+        <div class="dropdown">
+            <ul class="dropdown-menu" id="dropdown-menu-func">
+              <li><a class="dropdown-item" href="#senaste">Senaste</a></li>
+              <li><a class="dropdown-item" href="#dryck">Dryck</a></li>
+              <li><a class="dropdown-item" href="#snacks">Snacks</a></li>
+              <li><a class="dropdown-item" href="#mellanmal">Mellanmål</a></li>
+              <li><a class="dropdown-item" href="Varukorg.html">Varukorg</a></li>
+            </ul>
+          </div>
+        </div>
+        </header>
 
     <main>
         <section id="senaste">
