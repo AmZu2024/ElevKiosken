@@ -179,8 +179,10 @@ function displayCart() {
             <td>${item.quantity}</td>
             <td>${totalPrice} kr</td>
             <td>
-                <button class="btn btn-sm btn-primary" onclick="increaseQuantity('${item.id}')">+</button>
-                <button class="btn btn-sm btn-danger" onclick="decreaseQuantity('${item.id}')">-</button>
+               <button class="btn btn-sm btn-primary" onclick="increaseQuantity('${item.id}')">+</button>
+               <button class="btn btn-sm btn-danger" onclick="decreaseQuantity('${item.id}')">-</button>
+               <button class="btn btn-sm btn-warning" onclick="removeProductFromCart('${item.id}')">Ta bort</button>
+
             </td>
         `;
         cartItemsContainer.appendChild(row);
@@ -203,27 +205,100 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 /* eslint-enable */
 
-// Funktion för att öka antalet av en produkt i varukorgen
-function increaseQuantity(productID) {
-    let existingProduct = cart.find(p => p.id === productID);
-    if (existingProduct) {
-        existingProduct.quantity += 1;
+// Funktion för att visa varukorgen
+function displayCart() {
+    const cartItemsContainer = document.getElementById("varukorg-items");    
+    cartItemsContainer.innerHTML = "";
+
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+    cart.forEach(item => {
+        const totalPrice = parseInt(item.price, 10) * item.quantity;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.price}</td>
+            <td>${item.quantity}</td>
+            <td>${totalPrice} kr</td>
+            <td>
+                <button class="btn btn-sm btn-primary" onclick="increaseQuantity('${item.id}')">+</button>
+                <button class="btn btn-sm btn-danger" onclick="decreaseQuantity('${item.id}')">-</button>
+                <button class="btn btn-sm btn-warning" onclick="removeProductFromCart('${item.id}')">Ta bort</button>
+            </td>
+        `;
+        cartItemsContainer.appendChild(row);
+    });
+
+    document.getElementById("totalsumma").innerText = `Totalt pris: ${calculateTotal()} kr`;
+}
+
+// Funktion för att ta bort en produkt helt från varukorgen
+function removeProductFromCart(productID) {
+    console.log("Produkt-ID som tas bort:", productID);
+    
+    // Hämta den senaste varukorgen från sessionStorage
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+    // Logga varukorgen före borttagningen
+    console.log("Före borttagning:", cart);
+    
+    // Hitta index för produkten i varukorgen
+    const productIndex = cart.findIndex(product => product.id === productID);
+
+    // Ta bort produkten om den finns i varukorgen
+    if (productIndex !== -1) {
+        cart.splice(productIndex, 1); // Ta bort produkten från cart
     }
-    sessionStorage.setItem("cart", JSON.stringify(cart)); 
+
+    // Logga varukorgen efter borttagningen
+    console.log("Efter borttagning:", cart);
+
+    // Uppdatera sessionStorage med den nya kundkorgen
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+
+    // Uppdatera varukorgsvisningen
     displayCart();
 }
 
 // Funktion för att minska antalet av en produkt i varukorgen
 function decreaseQuantity(productID) {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
     let existingProduct = cart.find(p => p.id === productID);
+
     if (existingProduct) {
         if (existingProduct.quantity > 1) {
             existingProduct.quantity -= 1;
         } else {
-            cart = cart.filter(p => p.id !== productID); // Ta bort produkten om den når 0
+            cart = cart.filter(p => p.id !== productID); // Ta bort produkten om kvantiteten når 0
         }
     }
+
     sessionStorage.setItem("cart", JSON.stringify(cart)); 
     displayCart();
 }
+
+// Funktion för att öka antalet av en produkt i varukorgen
+function increaseQuantity(productID) {
+    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    let existingProduct = cart.find(p => p.id === productID);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    }
+
+    sessionStorage.setItem("cart", JSON.stringify(cart)); 
+    displayCart();
+}
+
+// Funktion för att räkna ut totalsumman
+function calculateTotal() {
+    const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+    return cart.reduce((sum, item) => sum + parseInt(item.price, 10) * item.quantity, 0);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    displayCart();
+});
+
 
