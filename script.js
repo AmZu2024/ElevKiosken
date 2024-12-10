@@ -99,6 +99,12 @@ function addProduct(category,productID)
         existingProduct = produkt;
        }
        sessionStorage.setItem("cart", JSON.stringify(cart)); 
+
+          // Uppdatera räknaren
+          updateCartCount();
+
+        // Visa notifikation
+        showNotification(`${produkt.name} har lagts till i kundkorgen!`);
     }
        
 }
@@ -129,8 +135,18 @@ function removeProduct(category,productID)
         cart.push(product);
         existingProduct = product;
        }
-       sessionStorage.setItem("cart", JSON.stringify(cart)); 
-       displayCart();
+            // Uppdatera kundkorgen i sessionStorage
+        sessionStorage.setItem("cart", JSON.stringify(cart));
+
+        // Uppdatera räknaren
+        updateCartCount();
+
+        // Visa en notifikation att produkten har tagits bort
+        showNotification(`${product.name} har tagits bort från kundkorgen!`);
+
+        // Uppdatera varukorgen (om du har en visuell lista)
+        displayCart();
+
     }
      console.log(cart)  
 }
@@ -147,6 +163,11 @@ function calculateTotalCartPrice() {
 
 document.addEventListener("DOMContentLoaded", function () {
     displayCart();
+    updateCartCount();
+    showProducts("senaste", "senaste-container");
+    showProducts("dryck", "dryck-container");
+    showProducts("snacks", "snacks-container");
+    showProducts("mellanmal", "mellanmal-container");
 });
 
 function displayCart() {
@@ -188,3 +209,30 @@ document.addEventListener("DOMContentLoaded", () => {
     showProducts("mellanmal", "mellanmal-container");
 });
 /* eslint-enable */
+
+function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message; // Sätt meddelandetext
+    notification.classList.add('visible');
+
+    // Dölj notifikationen efter 2 sekunder
+    setTimeout(() => {
+        notification.classList.remove('visible');
+    }, 2000);
+}
+
+function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElement = document.getElementById('cart-count');
+
+    cartCountElement.textContent = totalItems;
+
+    // Dölj räknaren om kundkorgen är tom
+    if (totalItems === 0) {
+        cartCountElement.parentElement.classList.add('d-none');
+    } else {
+        cartCountElement.parentElement.classList.remove('d-none');
+    }
+}
+
+

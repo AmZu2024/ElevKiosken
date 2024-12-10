@@ -19,7 +19,14 @@
       <div class="flex-grow-1">
           <h1>Elevkiosken</h1>
         </div>
-          <a href="Varukorg.html" class="btn btn-light">Varukorg</a>
+        <div class="position-relative d-inline-block">
+            <a href="Varukorg.html" class="btn btn-light">Varukorg</a>
+            <div id="cart-count-container" class="position-absolute top-0 end-0 translate-middle">
+              <span id="cart-count" class="badge bg-danger">0</span>
+            </div>
+          </div>
+          
+          
         <div class="dropdown">
             <ul class="dropdown-menu" id="dropdown-menu-func">
               <li><a class="dropdown-item" href="#senaste">Senaste</a></li>
@@ -99,7 +106,13 @@
                     </div>
                 </div>
             </div>
+            
         </section>
+        <div id="notification" class="hidden">
+            Varan har lagts till i kundkorgen!
+          </div>
+          
+          
         
     </main>
     <script
