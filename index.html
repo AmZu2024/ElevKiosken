@@ -8,8 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
-   
-</head>
+  </head>
 <body class="bg-color">
     <header class="bg-dark text-white py-3">
       <div class="container d-flex justify-content-between align-items-center">
@@ -18,6 +17,25 @@
       </button>
       <div class="flex-grow-1">
           <h1>Elevkiosken</h1>
+
+          <a href="Varukorg.html" class="back-button">Varukorg</a>
+        </div>
+    </header>
+
+    <div class="dropdown">
+        <button class="button-style dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="dropdown-button">
+          <i class="bi bi-list" id="dropdown-icon"></i>
+        </button>
+        <ul class="dropdown-menu" id="dropdown-menu-func">
+          <li><a class="dropdown-item" href="#senaste">Senaste</a></li>
+          <li><a class="dropdown-item" href="#dryck">Dryck</a></li>
+          <li><a class="dropdown-item" href="#snacks">Snacks</a></li>
+          <li><a class="dropdown-item" href="#mellanmal">Mellanmål</a></li>
+          <li><a class="dropdown-item" href="Varukorg.html">Varukorg</a></li>
+        </ul>
+    </div>
+
+
         </div>
           <a href="Varukorg.html" class="btn btn-light">Varukorg</a>
         <div class="dropdown">
@@ -31,6 +49,7 @@
           </div>
         </div>
         </header>
+
     <main>
         <section id="senaste">
             <div class="accordion">
@@ -42,7 +61,7 @@
                     </h2>
                     <div id="collapse-one" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <div  id="senaste-container"></div>
+                            <div id="senaste-container"></div>
                         </div>
                     </div>
                 </div>
@@ -60,7 +79,7 @@
                     <div id="collaps-two" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div id="dryck-container"></div>
-
+                            
                         </div>
                     </div>
                 </div>
@@ -78,6 +97,7 @@
                     <div id="collapse-three" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div id="snacks-container"></div>
+                            
                         </div>
                     </div>
                 </div>
@@ -95,6 +115,7 @@
                     <div id="collapse-four" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div id="mellanmal-container"></div>
+                            
                         </div>
                     </div>
                 </div>
@@ -110,3 +131,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+
